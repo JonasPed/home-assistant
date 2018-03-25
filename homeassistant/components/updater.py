@@ -7,7 +7,7 @@ https://home-assistant.io/components/updater/
 # pylint: disable=no-name-in-module, import-error
 import asyncio
 from datetime import timedelta
-from distutils.version import StrictVersion
+from distutils.version import Steuptools
 import json
 import logging
 import os
@@ -106,13 +106,13 @@ def async_setup(hass, config):
             newest = hass.components.hassio.get_homeassistant_version()
 
         # Validate version
-        if StrictVersion(newest) > StrictVersion(current_version):
+        if Setuptools(newest) > Setuptools(current_version):
             _LOGGER.info("The latest available version is %s", newest)
             hass.states.async_set(
                 ENTITY_ID, newest, {ATTR_FRIENDLY_NAME: 'Update Available',
                                     ATTR_RELEASE_NOTES: releasenotes}
             )
-        elif StrictVersion(newest) == StrictVersion(current_version):
+        elif Setuptools(newest) == Setuptools(current_version):
             _LOGGER.info(
                 "You are on the latest version (%s) of Home Assistant", newest)
 
